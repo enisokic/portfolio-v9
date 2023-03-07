@@ -1,0 +1,1032 @@
+/* ============= */
+/* Lettertype(s) */
+/* ============= */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* ========================= */
+/* Kleuren (light/dark mode) */
+/* ========================= */
+:root,
+:root.light-mode {
+	--primary-color: #16ae97;
+	--white: #ffffff;
+	--menu-color: #202124;
+	--black-white: #000000;
+	--black-white-reverse: #ffffff;
+	--background1: #e7f6f4;
+	--background2: #ffffff;
+	--background3: #a1ded5;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--primary-color: #16ae97;
+		--white: #ffffff;
+		--menu-color: #202124;
+		--black-white: #ffffff;
+		--black-white-reverse: #000000;
+		--background1: #202124;
+		--background2: #292b2e;
+		--background3: #17171a;
+	}
+}
+
+:root.dark-mode {
+	--primary-color: #16ae97;
+	--white: #ffffff;
+	--menu-color: #202124;
+	--black-white: #ffffff;
+	--black-white-reverse: #000000;
+	--background1: #202124;
+	--background2: #292b2e;
+	--background3: #17171a;
+}
+
+/* ============= */
+/* Complete html */
+/* ============= */
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 3.2em;
+	color-scheme: normal;
+}
+
+/* =================== */
+/* Body van de website */
+/* =================== */
+body {
+	margin: 0;
+}
+
+body p {
+	font-family: "Poppins", sans-serif;
+	font-weight: 300;
+	font-size: 1em;
+	line-height: 1.5em;
+	color: var(--black-white);
+	margin: 0;
+}
+
+body h2 {
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	font-size: 2em;
+	color: var(--black-white);
+	margin: 0;
+}
+
+body h3 {
+	font-family: "Poppins", sans-serif;
+	font-weight: 500;
+	font-size: 1.25em;
+	color: var(--black-white);
+	margin: 0;
+}
+
+.disablescroll {
+	/* Class wordt toegevoegd d.m.v. JS en blokkeert het scrollen (trigger hamburger)*/
+	overflow: hidden;
+}
+
+/* ============== */
+/* Primary button */
+/* ============== */
+.primary-button {
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	font-size: 1em;
+	text-decoration: none;
+	color: var(--white);
+	background-color: var(--primary-color);
+	padding: 0.75em 1.5em;
+	border: solid 0.1em var(--primary-color);
+	border-radius: 0.25em;
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	transition: all ease 0.5s;
+}
+
+.primary-button svg {
+	margin-left: 0.25em;
+}
+
+.primary-button:hover,
+.primary-button:focus {
+	/* Primary button hover & focus */
+	color: var(--black-white);
+	background-color: transparent;
+}
+
+.primary-button:active {
+	/* Primary button active */
+	color: var(--primary-color);
+	transition: all ease 0.1s;
+}
+
+/* ================= */
+/* Hoofdmenu styling */
+/* ================= */
+header {
+	display: flex;
+	align-items: center;
+	padding: 1.5em 5em;
+	background-color: var(--menu-color);
+	position: sticky; /* Header tonen tijdens het scrollen i.c.m. top 0*/
+	top: 0;
+	z-index: 9; /* Header overlapt overige content */
+}
+
+header > a > svg {
+	/* Logo */
+	width: auto;
+	height: 2.5em;
+}
+
+/* Logo styling */
+.logo-beeld {
+	fill: var(--primary-color);
+}
+
+.logo-letters {
+	fill: var(--white);
+}
+
+nav {
+	width: 100%; /* Breedte menu */
+}
+
+nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end; /* Complete list aan het einde */
+}
+
+nav ul a {
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	font-size: 1em;
+	color: var(--white);
+	text-decoration: none;
+	margin-left: 1em;
+	transition: all ease 0.1s;
+}
+
+nav ul a:hover,
+nav ul a:focus {
+	border-bottom: solid 0.1em var(--primary-color);
+}
+
+nav ul a:active {
+	color: var(--primary-color);
+}
+
+.hoofdmenu-button a {
+	/* Button in de menu */
+	background-color: var(--primary-color);
+	padding: 0.75em 1.5em;
+	border: solid 0.1em var(--primary-color);
+	border-radius: 0.25em;
+	display: flex;
+	align-items: center; /* Tekst en Icoon vertical gecenterd van elkaar */
+	transition: all ease 0.5s;
+}
+
+.hoofdmenu-button svg {
+	margin-left: 0.25em;
+}
+
+.hoofdmenu-button a:hover,
+.hoofdmenu-button a:focus {
+	background-color: transparent;
+}
+
+.hoofdmenu-button a:active {
+	transition: all ease 0.1s;
+}
+
+@media (min-width: 1024px) {
+	/* Buttons van mobiel menu laten verdwijen */
+	#open-menu {
+		display: none;
+	}
+
+	#sluit-menu {
+		display: none;
+	}
+}
+
+/* Styling menu voor mobiele schermen */
+@media (max-width: 1024px) {
+	header {
+		justify-content: space-between;
+		padding: 1.5em 3em;
+	}
+
+	header > a > svg {
+		/* Logo */
+		width: auto;
+		height: 2em;
+	}
+
+	nav {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--menu-color);
+		transform: translateY(-100%); /* Menu schuift uit beeld */
+		transition: all ease 0.5s;
+	}
+
+	.toon-menu {
+		/* Class wordt toegevoegd d.m.v. JS en laat de menu terug schuiven */
+		transform: translateY(0%);
+	}
+
+	nav ul {
+		flex-direction: column;
+		gap: 1em;
+	}
+
+	nav ul a {
+		font-size: 2em;
+		margin: 0;
+	}
+
+	.hoofdmenu-button a {
+		background-color: inherit;
+		padding: 0;
+		border: none;
+		border-radius: none;
+	}
+
+	.hoofdmenu-button svg {
+		display: none;
+	}
+
+	.hoofdmenu-button a:hover,
+	.hoofdmenu-button a:focus {
+		transition: all ease 0.1s;
+		border-radius: 0;
+	}
+
+	/* Open & Sluiten buttons */
+	header button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	header button svg {
+		display: flex;
+		width: 2em;
+		height: auto;
+	}
+
+	#open-menu {
+		color: var(--primary-color);
+		background-color: inherit;
+		border: none;
+	}
+
+	#sluit-menu {
+		color: var(--white);
+		background-color: var(--primary-color);
+		display: flex;
+		padding: 1em;
+		border-radius: 50%;
+		border: none;
+		position: fixed;
+		bottom: 5em;
+	}
+}
+
+/* ============ */
+/* Home styling */
+/* ============ */
+#home {
+	background-color: var(--background1);
+	padding: 5em 10em;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: 1fr;
+	align-items: center;
+}
+
+#home img {
+	width: 20em;
+	height: auto;
+	justify-self: center;
+}
+
+#home-tekst h1 {
+	font-family: "Poppins", sans-serif;
+	font-weight: 600;
+	font-size: 2.25em;
+	color: var(--black-white);
+	display: grid;
+	margin: 0;
+}
+
+#home-tekst p {
+	margin: 1em 0em;
+	display: grid;
+	gap: .5em;
+}
+
+#home-tekst .scheiding {
+	color: var(--primary-color);
+}
+
+@media (max-width: 1024px) {
+	/* Home versie mobiele schermen */
+	#home {
+		padding: 3em;
+		grid-template-columns: repeat(1, 1fr);
+		grid-auto-rows: auto;
+		gap: 1.5em;
+		justify-items: center;
+	}
+
+	#home-tekst {
+		display: grid;
+		justify-items: center;
+		text-align: center;
+	}
+
+	#home img {
+		order: -1;
+		width: 15em;
+		height: auto;
+	}
+}
+
+@media (max-width: 480px) {
+	#home img {
+		width: 10em;
+		height: auto;
+	}
+}
+
+/* ================ */
+/* Over mij styling */
+/* ================ */
+#over-mij {
+	background-color: var(--background2);
+	padding: 5em 10em;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 3em;
+	align-items: center;
+}
+
+#over-mij img {
+	width: 100%;
+	height: auto;
+	border-radius: 0.5em;
+	padding: -10em;
+	order: -1; /* Afbeelding als eerste weergeven */
+}
+
+#over-mij-tekst p {
+	margin-bottom: 1em;
+}
+
+@media (max-width: 1024px) {
+	/* Over mij versie mobiele schermen */
+	#over-mij {
+		grid-template-columns: repeat(1, 1fr);
+		justify-items: center;
+		gap: 2em;
+		padding: 3em;
+	}
+
+	#over-mij img {
+		order: 1; /* Afbeelding na tekst tonen */
+		width: 50%;
+		height: auto;
+	}
+}
+
+@media (max-width: 480px) {
+	#over-mij img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+/* ============== */
+/* Skills styling */
+/* ============== */
+#skills {
+	background-color: var(--background1);
+	padding: 5em 10em;
+}
+
+#skills h2 {
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+#skills ul {
+	/* 3 koloms grid */
+	list-style: none;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 3em;
+	grid-auto-rows: 1fr;
+}
+
+#skills li {
+	/* Skills content in het midden en onder elkaar */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.skills-icon {
+	/* Achtergrond skills iconen */
+	background-color: var(--background2);
+	display: flex;
+	border-radius: 50%; /* Achtergrond rond maken */
+	padding: 1.5em;
+	z-index: 2;
+}
+
+.skills-icon svg {
+	width: 3em;
+	height: auto;
+}
+
+/* Kleur icon zelf */
+.skills-icon-bg {
+	fill: var(--primary-color);
+}
+
+.skills-icon-omlijning {
+	fill: none;
+	stroke: var(--black-white);
+	stroke-width: 15;
+	stroke-miterlimit: 10;
+}
+
+.skills-tekst {
+	/* Tekst onder elkaar en in het midden incl. achtergrond */
+	background-color: var(--background3);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border-radius: 0.5em;
+	width: 100%;
+	height: 100%;
+	padding: 2em 0;
+	margin-top: -1.5em; /* Icon tekst laten overlappen */
+}
+
+.skills-tekst h3 {
+	/* Titel van de skills */
+	margin: 0 1em;
+}
+
+.skills-tekst p {
+	margin: 0 1em;
+}
+
+.skills-tekst span {
+	/* Peppers */
+	filter: grayscale(1);
+}
+
+@media (max-width: 1024px) {
+	/* Skills versie mobiele schermen */
+	#skills {
+		padding: 3em;
+	}
+
+	#skills ul {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5em;
+	}
+}
+
+@media (max-width: 480px) {
+	#skills ul {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+/* ================= */
+/* Portfolio styling */
+/* ================= */
+#portfolio {
+	background-color: var(--background2);
+	padding: 5em 10em;
+}
+
+#portfolio h2 {
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+#portfolio ul {
+	/* 3 koloms grid */
+	list-style: none;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 3em;
+	grid-auto-rows: 1fr;
+}
+
+#portfolio li {
+	display: grid;
+}
+
+#portfolio li a {
+	background-color: var(--background1);
+	text-decoration: none;
+	border-radius: 0.5em;
+	overflow: hidden;
+	transition: all ease 0.5s;
+}
+
+#portfolio img {
+	width: 100%;
+	height: auto;
+}
+
+.portfolio-item-tekst {
+	margin: 1em;
+}
+
+.portfolio-item-tekst h3 {
+	transition: all ease 0.5s;
+}
+
+.portfolio-item-tekst p {
+	font-size: 0.85em;
+	color: var(--black-white-reverse);
+	background-color: var(--primary-color);
+	margin-top: 0.5em;
+	width: fit-content;
+	padding: 0.5em;
+	border-radius: 0.25em;
+	transition: all ease 0.5s;
+}
+
+#portfolio li a:hover,
+#portfolio li a:focus {
+	/* Portfolio item hover & focus */
+	transform: scale(1.05);
+}
+
+#portfolio li a:hover h3,
+#portfolio li a:focus h3 {
+	/* Portfolio tekst hover & focus */
+	color: var(--primary-color);
+}
+
+#portfolio li a:hover p,
+#portfolio li a:focus p {
+	/* Portfolio tekst hover & focus */
+	background-color: var(--black-white);
+}
+
+#portfolio li a:active p {
+	/* Portfolio tekst active */
+	background-color: var(--primary-color);
+	transition: all ease 0.1s;
+}
+
+@media (max-width: 1024px) {
+	/* Portfolio versie mobiele schermen */
+	#portfolio {
+		padding: 3em;
+	}
+
+	#portfolio ul {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5em;
+		grid-auto-rows: auto;
+	}
+}
+
+@media (max-width: 480px) {
+	/* Portfolio versie mobiele schermen */
+	#portfolio ul {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+/* =================== */
+/* Kennismaken styling */
+/* =================== */
+#kennismaken {
+	background-color: var(--background1);
+	padding: 5em 10em;
+}
+
+#kennismaken h2 {
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+#kennismaken ul {
+	list-style: none;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 3em;
+	grid-auto-rows: 1fr;
+	justify-items: center;
+}
+
+#kennismaken li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+}
+
+.kennismaken-icon {
+	display: flex;
+	background-color: var(--background2);
+	border-radius: 50%;
+	padding: 1.5em;
+}
+
+.kennismaken-icon svg {
+	width: 3em;
+	height: auto;
+}
+
+/* Icon kleur zelf */
+.kennismaken-icon-bg {
+	fill: var(--primary-color);
+}
+
+.kennismaken-icon-omlijning {
+	fill: none;
+	stroke: var(--black-white);
+	stroke-width: 15;
+	stroke-miterlimit: 10;
+}
+
+#kennismaken h3 {
+	margin-top: 1em;
+}
+
+#kennismaken p {
+	font-weight: 400;
+}
+
+#kennismaken p a {
+	color: var(--black-white);
+}
+
+#kennismaken > ul > li > .primary-button {
+	/* Buttons */
+	margin-top: 1em;
+}
+
+@media (max-width: 1024px) {
+	/* Kennismaken versie mobiele schermen */
+	#kennismaken {
+		padding: 3em;
+	}
+
+	#kennismaken ul {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+/* ======================================= */
+/* Website systemmode, lightmode, darkmode */
+/* ======================================= */
+/* ========================================== */
+/* Sectie instellingen van darkmode/lightmode */
+/* ========================================== */
+.website-thema {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 0.5em;
+	position: fixed;
+	bottom: 1.5em;
+	right: 1.5em;
+}
+
+.thema-instellingen {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 0.5em;
+	transform: translateY(120%); /* Instellingen schuiven uit beeld */
+	transition: all ease 0.5s;
+}
+
+/* Alle buttons */
+.website-thema button {
+	display: flex;
+	background-color: var(--background1);
+	border: solid 0.1em var(--primary-color);
+	border-radius: 50%;
+	padding: 0.75em;
+	transition: all ease 0.5s;
+	cursor: pointer;
+}
+
+.website-thema button svg {
+	fill: var(--black-white);
+	width: 1.5em;
+	height: auto;
+}
+
+@media (max-width: 480px) {
+	.website-thema button svg {
+		width: 2.5em;
+		height: auto;
+	}
+}
+
+.website-thema button:hover,
+.website-thema button:focus {
+	transform: scale(1.1);
+}
+
+.website-thema button:active svg {
+	fill: var(--primary-color);
+}
+
+/* Open en sluit buttons */
+.website-thema button:last-of-type {
+	background-color: var(--black-white);
+	border-color: var(--black-white-reverse);
+}
+
+.website-thema button:last-of-type svg {
+	fill: var(--black-white-reverse);
+}
+
+.website-thema button:last-of-type:hover,
+.website-thema button:last-of-type:focus {
+	background-color: var(--black-white-reverse);
+	border-color: var(--black-white);
+	transform: scale(1); /* Zodat de button even groot blijft en niet veranderd */
+}
+
+.website-thema button:last-of-type:hover svg,
+.website-thema button:last-of-type:focus svg {
+	fill: var(--black-white);
+}
+
+.website-thema button:last-of-type:active svg {
+	fill: var(--primary-color);
+	transition: all ease 0.1s;
+}
+
+/* Instellingen tonen */
+.toon-instellingen {
+	transform: translateY(0%);
+}
+
+/* Button open instellingen verstoppen */
+.hide-button {
+	display: none !important;
+}
+
+/* Button open instellingen positie */
+.button-positie {
+	position: fixed;
+	bottom: 1.5em;
+	right: 1.5em;
+}
+
+/* Geselecteerde button (systemmode, lightmode & darkmode) */
+button.geselecteerd {
+	background-color: var(--primary-color);
+	cursor: default;
+}
+
+button.geselecteerd:hover,
+button.geselecteerd:focus {
+	transform: scale(1); /* Zodat de button even groot blijft en niet veranderd */
+}
+
+/* ====== */
+/* Footer */
+/* ====== */
+footer {
+	background-color: var(--background3);
+	padding: 0.5em 0em;
+}
+
+footer p {
+	font-weight: 400;
+	font-size: 0.75em;
+	text-align: center;
+}
+
+
+/* ============== */
+/* Pagina project */
+/* ============== */
+/* Project */
+.project-info {
+	background-color: var(--background1);
+	padding: 5em 10em;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 3em;
+	align-items: center;
+}
+
+.project-info img {
+	width: 100%;
+	height: auto;
+	border-radius: 0.5em;
+	padding: -10em;
+	order: -1; /* Afbeelding als eerste weergeven */
+}
+
+/* Front-end development prototype netflix website */
+.project-info iframe {
+	width: 100%;
+	height: 80%;
+	order: -1;
+	border: solid .1em var(--black-white);
+	border-radius: .5em;
+}
+
+.project-info-tekst h2 {
+	display: grid;
+}
+
+.project-info-tekst h2 span {
+	font-weight: 400;
+}
+
+.project-info-tekst p {
+	margin-bottom: 1em;
+}
+
+@media (max-width: 1024px) {
+	/* Over mij versie mobiele schermen */
+	.project-info {
+		grid-template-columns: repeat(1, 1fr);
+		justify-items: center;
+		gap: 2em;
+		padding: 3em;
+	}
+
+	.project-info img {
+		order: 1; /* Afbeelding na tekst tonen */
+		width: 50%;
+		height: auto;
+	}
+
+	.project-info iframe {
+		width: 75%;
+		height: 40em;
+		order: 1;
+	}
+}
+
+@media (max-width: 480px) {
+	.project-info img {
+		width: 100%;
+		height: auto;
+	}
+
+	.project-info iframe {
+		width: 110%;
+		height: 40em;
+	}
+}
+
+/* ================= */
+/* Portfolio styling */
+/* ================= */
+.portfolio-2koloms {
+	background-color: var(--background2);
+	padding: 5em 10em;
+}
+
+.portfolio-2koloms h2 {
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.portfolio-2koloms ul {
+	/* 2 koloms grid */
+	list-style: none;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 3em;
+	grid-auto-rows: 1fr;
+}
+
+.portfolio-2koloms li {
+	display: grid;
+	width: 66%;
+}
+
+.portfolio-2koloms li:first-of-type {
+	justify-self: end;
+}
+
+.portfolio-2koloms li a {
+	background-color: var(--background1);
+	text-decoration: none;
+	border-radius: 0.5em;
+	overflow: hidden;
+	transition: all ease 0.5s;
+}
+
+.portfolio-2koloms img {
+	width: 100%;
+	height: auto;
+}
+
+.portfolio-2koloms-tekst {
+	margin: 1em;
+}
+
+.portfolio-2koloms-tekst h3 {
+	transition: all ease 0.5s;
+}
+
+.portfolio-2koloms-tekst p {
+	font-size: 0.85em;
+	color: var(--black-white-reverse);
+	background-color: var(--primary-color);
+	margin-top: 0.5em;
+	width: fit-content;
+	padding: 0.5em;
+	border-radius: 0.25em;
+	transition: all ease 0.5s;
+}
+
+.portfolio-2koloms li a:hover,
+.portfolio-2koloms li a:focus {
+	/* Portfolio item hover & focus */
+	transform: scale(1.05);
+}
+
+.portfolio-2koloms li a:hover h3,
+.portfolio-2koloms li a:focus h3 {
+	/* Portfolio tekst hover & focus */
+	color: var(--primary-color);
+}
+
+.portfolio-2koloms li a:hover p,
+.portfolio-2koloms li a:focus p {
+	/* Portfolio tekst hover & focus */
+	background-color: var(--black-white);
+}
+
+.portfolio-2koloms li a:active p {
+	/* Portfolio tekst active */
+	background-color: var(--primary-color);
+	transition: all ease 0.1s;
+}
+
+@media (max-width: 1024px) {
+	/* Portfolio versie mobiele schermen */
+	.portfolio-2koloms {
+		padding: 3em;
+	}
+
+	.portfolio-2koloms ul {
+		gap: 1.5em;
+		grid-auto-rows: auto;
+	}
+
+	.portfolio-2koloms li {
+		width: 100%;
+	}
+}
+
+@media (max-width: 480px) {
+	/* Portfolio versie mobiele schermen */
+	.portfolio-2koloms ul {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
